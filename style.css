@@ -55,3 +55,82 @@ img {
     margin: 20px auto;
     border-radius: 10px;
 }
+
+/* Contact Form Styling */
+
+#contact-form {
+  max-width: 650px;
+  margin-top: 20px;
+}
+
+#contact-form fieldset {
+  border: 1px solid #666;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#contact-form legend {
+  font-weight: bold;
+  padding: 0 8px;
+}
+
+#contact-form label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+#contact-form input,
+#contact-form textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #666;
+  border-radius: 5px;
+  font: inherit;
+  background-color: #fff;
+  color: #222;
+}
+
+#contact-form textarea {
+  min-height: 120px;
+}
+
+#contact-form button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  background-color: #174a70;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font: inherit;
+  cursor: pointer;
+}
+
+#contact-form button:hover {
+  background-color: #103550;
+}
+
+#contact-form input:focus-visible,
+#contact-form textarea:focus-visible,
+#contact-form button:focus-visible {
+  outline: 3px solid #b45309;
+  outline-offset: 3px;
+}
+
+#contact-form .error {
+  color: #a11616;
+  margin-top: 5px;
+  font-size: 0.95rem;
+}
+
+#contact-form [aria-invalid="true"] {
+  border: 2px solid #a11616;
+}
+
+#form-status {
+  margin-top: 15px;
+  font-weight: bold;
+}

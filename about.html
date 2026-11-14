@@ -29,9 +29,89 @@
         <h2>Contact</h2>
         <p>I'm open to connecting with others in the technology field. You can explore my projects and follow my progress as I continue learning web development.</p>
     </section>
+
+<section>
+  <h2>Send Me a Message</h2>
+
+  <form id="contact-form" novalidate>
+    <fieldset>
+      <legend>Contact Information</legend>
+
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name"
+             required aria-describedby="name-error">
+      <p id="name-error" class="error"></p>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email"
+             required aria-describedby="email-error">
+      <p id="email-error" class="error"></p>
+
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject"
+             required aria-describedby="subject-error">
+      <p id="subject-error" class="error"></p>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message"
+                required aria-describedby="message-error"></textarea>
+      <p id="message-error" class="error"></p>
+    </fieldset>
+
+    <button type="submit">Send Message</button>
+    <p id="form-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
    </main>
    <footer>
     <p>&copy; 2026 Charity Hatcher</p>
    </footer>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const fields = ["name", "email", "subject", "message"];
+
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    let hasErrors = false;
+    let firstInvalid = null;
+
+    fields.forEach(function(fieldName) {
+      const field = document.getElementById(fieldName);
+      const error = document.getElementById(fieldName + "-error");
+      const value = field.value.trim();
+      let message = "";
+
+      if (!value) {
+        message = "Please complete this field.";
+      } else if (
+        fieldName === "email" &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+      ) {
+        message = "Please enter a valid email address.";
+      }
+
+      error.textContent = message;
+      field.setAttribute("aria-invalid", message ? "true" : "false");
+
+      if (message) {
+        hasErrors = true;
+        if (!firstInvalid) firstInvalid = field;
+      }
+    });
+
+    const status = document.getElementById("form-status");
+
+    if (hasErrors) {
+      status.textContent = "Please correct the errors in the form.";
+      firstInvalid.focus();
+    } else {
+      status.textContent =
+        "Form validated successfully. This demo does not send messages.";
+    }
+  });
+</script>
+
 </body>
 </html>
