@@ -134,3 +134,33 @@ img {
   margin-top: 15px;
   font-weight: bold;
 }
+
+
+
+/* Featured Work Button */
+#toggle-work {
+    padding: 12px 20px;
+    background-color: #174a70;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font: inherit;
+    cursor: pointer;
+}
+
+#toggle-work:hover {
+    background-color: #103550;
+}
+
+/* Keyboard Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #b45309;
+    outline-offset: 3px;
+}
+
+header a:focus-visible {
+    outline-color: #ffffff;
+}

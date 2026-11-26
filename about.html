@@ -1,117 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About/Contact | Charity's Portfolio</title>
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-   <header>
-    <h1>About/Contact</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About/Contact</a>
-    </nav>
-   </header>
-   <main>
-    <section>
-        <h2>About Me</h2>
-        <p>I'm an Information Technology student with an interest in web development and cybersecurity. I'm currently learning HTML, CSS, and how to build responsive websites. My goal is to continue developing my technical skills and eventually pursue a career in information security.</p>
-    </section>
-    <section>
-        <h2>Skills</h2>
-        <h3>What I'm Learning</h3>
-        <p>I'm developing skills in HTML, CSS, responsive web design, and Visual Studio Code. I'm also learning how to use GitHub to manage my projects and practicing problem-solving through my Information Technology coursework.</p>
-    </section>
-    <section>
-        <h2>Contact</h2>
-        <p>I'm open to connecting with others in the technology field. You can explore my projects and follow my progress as I continue learning web development.</p>
-    </section>
+    <header>
+        <h1>About/Contact</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About/Contact</a>
+        </nav>
+    </header>
 
-<section>
-  <h2>Send Me a Message</h2>
+    <main>
+        <section>
+            <h2>About Me</h2>
+            <p>I'm an Information Technology student with an interest in web development and cybersecurity. I'm currently learning HTML, CSS, and how to build responsive websites. My goal is to continue developing my technical skills and eventually pursue a career in information security.</p>
+        </section>
 
-  <form id="contact-form" novalidate>
-    <fieldset>
-      <legend>Contact Information</legend>
+        <section>
+            <h2>Skills</h2>
+            <h3>What I'm Learning</h3>
+            <p>I'm developing skills in HTML, CSS, responsive web design, and Visual Studio Code. I'm also learning how to use GitHub to manage my projects and practicing problem-solving through my Information Technology coursework.</p>
+        </section>
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name"
-             required aria-describedby="name-error">
-      <p id="name-error" class="error"></p>
+        <section>
+            <h2>Contact</h2>
+            <p>I'm open to connecting with others in the technology field. You can explore my projects and follow my progress as I continue learning web development.</p>
+        </section>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email"
-             required aria-describedby="email-error">
-      <p id="email-error" class="error"></p>
+        <section>
+            <h2>Send Me a Message</h2>
 
-      <label for="subject">Subject</label>
-      <input type="text" id="subject" name="subject"
-             required aria-describedby="subject-error">
-      <p id="subject-error" class="error"></p>
+            <form id="contact-form" novalidate>
+                <fieldset>
+                    <legend>Contact Information</legend>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message"
-                required aria-describedby="message-error"></textarea>
-      <p id="message-error" class="error"></p>
-    </fieldset>
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name"
+                           required aria-describedby="name-error">
+                    <p id="name-error" class="error"></p>
 
-    <button type="submit">Send Message</button>
-    <p id="form-status" role="status" aria-live="polite"></p>
-  </form>
-</section>
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email"
+                           required aria-describedby="email-error">
+                    <p id="email-error" class="error"></p>
 
-   </main>
-   <footer>
-    <p>&copy; 2026 Charity Hatcher</p>
-   </footer>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject"
+                           required aria-describedby="subject-error">
+                    <p id="subject-error" class="error"></p>
 
-<script>
-  const form = document.getElementById("contact-form");
-  const fields = ["name", "email", "subject", "message"];
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message"
+                              required aria-describedby="message-error"></textarea>
+                    <p id="message-error" class="error"></p>
+                </fieldset>
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault();
-    let hasErrors = false;
-    let firstInvalid = null;
+                <button type="submit">Send Message</button>
+                <p id="form-status" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
 
-    fields.forEach(function(fieldName) {
-      const field = document.getElementById(fieldName);
-      const error = document.getElementById(fieldName + "-error");
-      const value = field.value.trim();
-      let message = "";
-
-      if (!value) {
-        message = "Please complete this field.";
-      } else if (
-        fieldName === "email" &&
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-      ) {
-        message = "Please enter a valid email address.";
-      }
-
-      error.textContent = message;
-      field.setAttribute("aria-invalid", message ? "true" : "false");
-
-      if (message) {
-        hasErrors = true;
-        if (!firstInvalid) firstInvalid = field;
-      }
-    });
-
-    const status = document.getElementById("form-status");
-
-    if (hasErrors) {
-      status.textContent = "Please correct the errors in the form.";
-      firstInvalid.focus();
-    } else {
-      status.textContent =
-        "Form validated successfully. This demo does not send messages.";
-    }
-  });
-</script>
-
+    <footer>
+        <p>&copy; 2026 Charity Hatcher</p>
+    </footer>
 </body>
 </html>
